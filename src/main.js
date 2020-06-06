@@ -1,8 +1,37 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.config.productionTip = false
+
+import VueAxios from "vue-axios";
+import axios from "axios";
+
+import App from "./App.vue";
+import TaskList from "./components/TaskList.vue";
+import CreateTask from "./components/CreateTask.vue";
+
+Vue.use(VueRouter);
+
+
+Vue.use(VueAxios, axios);
+
+const routes = [
+  {
+    name: "TaskList",
+    path: "/task_list",
+    component: TaskList
+  },
+  {
+    name: "CreateTask",
+    path: "/create_task",
+    component: CreateTask
+  }
+];
+
+const router = new VueRouter({ mode: "history", routes: routes });
+
+Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+  router
+}).$mount("#app");
