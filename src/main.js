@@ -16,6 +16,11 @@ Vue.use(VueAxios, axios);
 
 const routes = [
   {
+    name: "home",
+    path: "/",
+    component: TaskList
+  },
+  {
     name: "TaskList",
     path: "/task_list",
     component: TaskList
